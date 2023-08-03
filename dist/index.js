@@ -4151,8 +4151,8 @@ async function run() {
 
     // Set the output variable for use by other actions: https://github.com/actions/toolkit/tree/master/packages/core#inputsoutputs
     //core.setOutput('browser_download_url', browserDownloadUrl);
-	const fs = require('fs');
-	fs.appendFileSync(process.env.GITHUB_OUTPUT, `{browser_download_url}=${browserDownloadUrl}\n`);
+	// const fs = require('fs');
+	// fs.appendFileSync(process.env.GITHUB_OUTPUT, `{browser_download_url}=${browserDownloadUrl}\n`);
 
 
   } catch (error) {
