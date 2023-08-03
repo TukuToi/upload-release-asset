@@ -4151,7 +4151,8 @@ async function run() {
 
     // Set the output variable for use by other actions: https://github.com/actions/toolkit/tree/master/packages/core#inputsoutputs
     //core.setOutput('browser_download_url', browserDownloadUrl);
-	console.log(`::set-output name=browser_download_url::${browserDownloadUrl}`);
+	const fs = require('fs');
+	fs.appendFileSync(process.env.GITHUB_OUTPUT, `{browser_download_url}=${browserDownloadUrl}\n`);
 
 
   } catch (error) {
@@ -6722,16 +6723,16 @@ function getInput(name, options) {
     return val.trim();
 }
 exports.getInput = getInput;
-/**
- * Sets the value of an output.
- *
- * @param     name     name of the output to set
- * @param     value    value to store
- */
-function setOutput(name, value) {
-    command_1.issueCommand('set-output', { name }, value);
-}
-exports.setOutput = setOutput;
+// /**
+//  * Sets the value of an output.
+//  *
+//  * @param     name     name of the output to set
+//  * @param     value    value to store
+//  */
+// function setOutput(name, value) {
+//     command_1.issueCommand('set-output', { name }, value);
+// }
+// exports.setOutput = setOutput;
 //-----------------------------------------------------------------------
 // Results
 //-----------------------------------------------------------------------
